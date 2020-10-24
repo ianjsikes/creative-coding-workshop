@@ -8,7 +8,13 @@ import { Colors } from './utils'
 import './index.css'
 
 const App = () => {
-  return <h1>Hello World</h1>
+  return (
+    <Canvas
+      colorManagement
+      shadowMap
+      camera={{ position: [0, 8, 15] }}
+    ></Canvas>
+  )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
