@@ -7,6 +7,8 @@ import { ShapeCluster } from './ShapeCluster'
 import { Colors } from './utils'
 import './index.css'
 
+softShadows()
+
 const Floor = () => {
   return (
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -4, 0]} receiveShadow>
@@ -19,6 +21,7 @@ const Floor = () => {
 const App = () => {
   return (
     <Canvas colorManagement shadowMap camera={{ position: [0, 8, 15] }}>
+      <fog attach="fog" args={[Colors.fog, 8, 40]} />
       <Lights />
       <Floor />
       <mesh castShadow receiveShadow>
