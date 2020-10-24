@@ -19,5 +19,16 @@ const DirectionalLight = () => {
 }
 
 export const Lights = () => {
-  return null
+  return (
+    <group>
+      <ambientLight intensity={0.4} />
+      <DirectionalLight />
+      <pointLight
+        position={[-10, 0, -20]}
+        color={Colors.light}
+        intensity={2.5}
+      />
+      <pointLight position={[0, -10, 0]} intensity={1.5} />
+    </group>
+  )
 }
