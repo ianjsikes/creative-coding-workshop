@@ -9,5 +9,9 @@ const randomPosition = () => {
 }
 
 export const ShapeCluster = () => {
-  return null
+  return (
+    <group>
+      <Shape />
+    </group>
+  )
 }
