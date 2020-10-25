@@ -9,8 +9,10 @@ export const Shape = ({ position = [0, 0, 0] }) => {
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime()
-    const t = Math.sin(time * factor)
-    meshRef.current.position.y = t
+    let t = Math.sin(time * factor)
+    t = Ease.inOutCubic((1 + t) / 2)
+
+    meshRef.current.position.y = position[1] + t * 4
   })
 
   return (
