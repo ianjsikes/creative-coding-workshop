@@ -4,5 +4,9 @@ import { Shape } from './Shape'
 import { randomRange, Ease } from './utils'
 
 export const ShapeCluster = () => {
-  return null
+  return (
+    <group>
+      <Shape />
+    </group>
+  )
 }
