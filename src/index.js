@@ -26,6 +26,7 @@ const App = () => {
       <Lights />
       <Floor />
       <ShapeCluster />
+      <OrbitControls />
     </Canvas>
   )
 }
