@@ -17,6 +17,11 @@ export const Shape = ({ position = [0, 0, 0] }) => {
     meshRef.current.scale.y = 1 + t * 3
   })
 
+  const { color } = useSpring({
+    color: active ? Colors.activeShape : Colors.shape,
+    config: config.wobbly,
+  })
+
   return (
     <mesh
       ref={meshRef}
@@ -26,11 +31,7 @@ export const Shape = ({ position = [0, 0, 0] }) => {
       receiveShadow
     >
       <sphereBufferGeometry args={[0.5, 16, 16]} />
-      <meshStandardMaterial
-        color={Colors.shape}
-        roughness={0}
-        metalness={0.2}
-      />
+      <meshStandardMaterial color={color} roughness={0} metalness={0.2} />
     </mesh>
   )
 }
