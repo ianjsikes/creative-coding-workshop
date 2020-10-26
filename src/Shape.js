@@ -17,21 +17,27 @@ export const Shape = ({ position = [0, 0, 0] }) => {
     meshRef.current.scale.y = 1 + t * 3
   })
 
-  const { color } = useSpring({
+  const { color, scale } = useSpring({
     color: active ? Colors.activeShape : Colors.shape,
+    scale: active ? [3, 3, 3] : [1, 1, 1],
     config: config.wobbly,
   })
 
   return (
-    <mesh
+    <animated.mesh
       ref={meshRef}
       position={position}
+      scale={scale}
       onClick={() => setActive(!active)}
       castShadow
       receiveShadow
     >
       <sphereBufferGeometry args={[0.5, 16, 16]} />
-      <meshStandardMaterial color={color} roughness={0} metalness={0.2} />
-    </mesh>
+      <animated.meshStandardMaterial
+        color={color}
+        roughness={0}
+        metalness={0.2}
+      />
+    </animated.mesh>
   )
 }
