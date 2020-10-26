@@ -16,9 +16,18 @@ const usePositions = (number) => {
 }
 
 export const ShapeCluster = ({ number = 10 }) => {
+  const groupRef = React.useRef()
   const positions = usePositions(number)
+
+  useFrame((state) => {
+    const time = state.clock.getElapsedTime()
+    let t = Math.sin(time * 0.5)
+
+    groupRef.current.rotation.y = t * Math.PI
+  })
+
   return (
-    <group>
+    <group ref={groupRef}>
       {positions.map((position, index) => (
         <Shape key={index} position={position} />
       ))}
